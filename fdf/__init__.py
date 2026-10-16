@@ -3,8 +3,10 @@
 from .errors import FdfError, MapFormatError
 from .model import Map, Point
 from .parser import parse_map, parse_value
+from .projection import Camera
 
 __all__ = [
+    "Camera",
     "FdfError",
     "Map",
     "MapFormatError",
