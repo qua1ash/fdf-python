@@ -5,6 +5,7 @@ from __future__ import annotations
 import sys
 from collections.abc import Sequence
 
+from fdf.app import App
 from fdf.errors import FdfError
 from fdf.parser import parse_map
 
@@ -21,10 +22,11 @@ def main(argv: Sequence[str] | None = None) -> int:
         return 2
 
     try:
-        parse_map(arguments[0])
+        height_map = parse_map(arguments[0])
     except (FdfError, OSError) as error:
         print(f"Ошибка: {error}", file=sys.stderr)
         return 1
+    App(height_map).run()
     return 0
 
 
